@@ -16,6 +16,14 @@ class Bottles
     end
   end
 
+  def quantity(n)
+    if n == 0
+      "no more"
+    else
+      n
+    end
+  end
+
   def verse(n)
     case n
     when 0
@@ -23,16 +31,11 @@ class Bottles
       "no more bottles of beer.\n" +
       "Go to the store and buy some more, " +
       "99 bottles of beer on the wall.\n"
-    when 1
-      "1 bottle of beer on the wall, " +
-      "1 bottle of beer.\n" +
-      "Take #{pronoun} down and pass it around, " +
-      "no more bottles of beer on the wall.\n"
     else
-      "#{n} bottles of beer on the wall, " +
-      "#{n} bottles of beer.\n" +
-      "Take one down and pass it around, " +
-      "#{n-1} #{recipient(n-1)} of beer on the wall.\n"
+      "#{n} #{recipient(n)} of beer on the wall, " +
+      "#{n} #{recipient(n)} of beer.\n" +
+      "Take #{pronoun(n)} down and pass it around, " +
+      "#{quantity(n-1)} #{recipient(n-1)} of beer on the wall.\n"
     end
   end
 
