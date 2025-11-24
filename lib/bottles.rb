@@ -8,6 +8,14 @@ class Bottles
     upper.downto(lower).collect {|i| verse(i)}.join("\n")
   end
 
+  def pronoun(n=:FIXME)
+    if n == 1
+      'it'
+    else
+      'one'
+    end
+  end
+
   def verse(n)
     case n
     when 0
@@ -18,7 +26,7 @@ class Bottles
     when 1
       "1 bottle of beer on the wall, " +
       "1 bottle of beer.\n" +
-      "Take it down and pass it around, " +
+      "Take #{pronoun} down and pass it around, " +
       "no more bottles of beer on the wall.\n"
     else
       "#{n} bottles of beer on the wall, " +
